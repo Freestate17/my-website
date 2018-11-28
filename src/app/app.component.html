@@ -1,15 +1,45 @@
 <!-- whole page is wrapped in sidenav container -->
-<mat-sidenav-container fullscreen>
+<mat-sidenav-container autosize fullscreen>
 
   <!-- sidenav -->
-  <mat-sidenav #sidenav mode="side">
-    <h1>Sidenav</h1>
-    <mat-divider></mat-divider>
-    <div><button mat-button>Sidenav Item 1</button></div>
-    <div><button mat-button>Sidenav Item 2</button></div>
-    <div><button mat-button>Sidenav Item 3</button></div>
-    <div><button mat-button>Sidenav Item 4</button></div>
-    <div><button mat-button>Sidenav Item 5</button></div>
+  <mat-sidenav #sidenav class="flex-column" mode="side" opened>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <div>
+          <button mat-button>
+            <mat-icon>cloud</mat-icon>
+            <span *ngIf="sidenavOpen">AWS Cloud Management</span>
+          </button>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <!--<mat-divider></mat-divider>-->
+    <div>
+      <button mat-button>
+        <mat-icon>home</mat-icon>
+        <span *ngIf="sidenavOpen">Home</span>
+      </button>
+    </div>
+    <div>
+      <button mat-button>
+        <mat-icon>settings_system_daydream</mat-icon>
+        <span *ngIf="sidenavOpen">Environments</span>
+      </button>
+    </div>
+    <div>
+      <button mat-button>
+        <mat-icon>info</mat-icon>
+        <span *ngIf="sidenavOpen">About</span>
+      </button>
+    </div>
+    <div class="flex-spacer"></div>
+    <div>
+      <button mat-button (click)="toggleSidenav()">
+        <mat-icon>{{sidenavOpen ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+        <span *ngIf="sidenavOpen">Toggle</span>
+      </button>
+    </div>
+
   </mat-sidenav>
 
   <!-- main content -->
@@ -18,16 +48,11 @@
     <!-- top nav -->
     <mat-toolbar color="primary">
       <mat-toolbar-row>
-        <!-- logo -->
-        <button mat-button>
-          <mat-icon>cloud</mat-icon>
-          <span>AWS Cloud Management</span>
-        </button>
 
         <!-- navbar menu buttons -->
-        <button mat-button>Home</button>
-        <button mat-button>Environments</button>
-        <button mat-button>About</button>
+        <button mat-button routerLink="/home">Home</button>
+        <button mat-button routerLink="/environments">Environments</button>
+        <button mat-button routerLink="/about">About</button>
 
         <!-- spacer -->
         <div class="flex-spacer"></div>
@@ -59,10 +84,11 @@
     </mat-toolbar>
 
     <!-- button to toggle sidenav -->
+    <button mat-raised-button (click)="toggleSidenav()">Flip Boolean</button>
     <button mat-raised-button (click)="sidenav.toggle()">Toggle Sidenav</button>
+
+    <router-outlet></router-outlet>
 
   </mat-sidenav-content>
 
 </mat-sidenav-container>
-
-<router-outlet></router-outlet>

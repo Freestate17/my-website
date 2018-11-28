@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-website';
+  sidenavOpen = false;
+
+  public toggleSidenav(): void {
+    this.sidenavOpen = !this.sidenavOpen;
+  }
 }

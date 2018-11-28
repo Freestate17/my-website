@@ -1,7 +1,11 @@
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100%; }
 
-.navbar-icon { height: 25px; margin-bottom: 5px; margin-right: 5px; }
+mat-sidenav.mat-drawer { background-color: #3f51b5; color: white; display: flex; }
+mat-sidenav.mat-drawer > div.mat-drawer-inner-container { display: flex; flex-direction: column; }
+
+.navbar-icon { height: 25px; margin-bottom: 3px; margin-right: 4px; }
 .flex-spacer { flex-grow: 1; }
+.flex-column { display: flex; flex-direction: column; }
+.flex-row { display: flex; flex-direction: row; }

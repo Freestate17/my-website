@@ -5,18 +5,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 // must import this after BrowserAnimationsModule
-import { MaterialsModule } from './materials/materials.module';
+import { MaterialsModule } from './modules/materials/materials.module';
+import { EnvironmentsComponent } from './components/environments/environments.component';
+import { AboutComponent } from './components/about/about.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EnvironmentsComponent,
+    AboutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialsModule
+    MaterialsModule,
+
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
